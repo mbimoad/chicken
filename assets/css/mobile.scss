@@ -1,0 +1,536 @@
+@media screen and (max-width: 1370px) {
+    header {
+        .logo {
+            img {
+                width: 130px;
+            }
+        }
+
+        .header-button {
+            .btn {
+                height: 40px;
+                width: 40px;
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            } .group {
+                height: 40px;
+                gap: 10px;
+                padding: 5px 20px;
+                svg {
+                    width: 22px;
+                    height: 22px;
+                } span {
+                    font-size: 22px;
+                }
+            }
+        }
+    } 
+
+    .player {
+        width: 75%;
+    }
+
+    .player.die {
+        width: 60%;
+    }
+
+    .container {
+        .ways {
+            .way {
+                width: 160px;
+                .placer {
+                    gap: 15px;
+                    .coin {
+                        width: 60%;
+                        span {
+                            font-size: 34px;
+                        }
+                    } .car {
+                        width: 80%;
+                    } .pagar {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .menu-option {
+            padding: 20px;
+            .difficult {
+                padding: 10px 12px;
+                &-btn {
+                    button {
+                        width: 120px;
+                        height: 35px;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            &-button {
+                button {
+                    height: 100px;
+                    width: 160px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+
+   
+    footer {
+        .menu-option {
+            .difficult {
+                &-btn {
+                    button {
+                        width: 90px;
+                    }
+                }
+            }
+
+            &-button {
+                gap: 9px;
+
+                button {
+                    width: 130px;
+                }
+
+                button.counter {
+                    span:first-child {
+                        font-size: 16px;
+                    } span:last-child {
+                        font-size: 27px;
+                    }
+                }
+                button.go {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+    .overlay, 
+    .overlay3 {
+        .gameover {
+            width: 450px;
+            &-title {
+                font-size: 40px;
+            } .scores {
+                margin-top: 35px;
+                h3 {
+                    font-size: 40px;
+                } span {
+                    font-size: 40px;
+                }
+            } .buttons {
+                gap: 10px;
+                bottom: -40px;
+                button, a {
+                    padding: 2px;
+                    font-size: 25px;
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+
+ 
+
+    header {
+        padding: 10px 25px;
+        .header-button {
+            .btn.fullscreen {
+                display: none;
+            }
+            .btn.difficults {
+                display: flex;
+            }
+        }
+    }
+
+    footer {
+        .menu-option {
+            .difficult {
+                position: fixed;
+                top: 90px;
+                right: 0;
+                border-radius: 0;
+                transform: translate(0, -30px);
+                opacity: 0;
+                pointer-events: none;
+                user-select: none;
+                transition: all 200ms ease 0s;
+                &-btn {
+                    flex-direction: column;
+                    
+                }
+            }
+
+            .difficult.show {
+                transform: translate(0, 0);
+                opacity: 1;
+                pointer-events: unset;
+                user-select: unset;
+            }
+
+            &-button {
+                width: 100%;
+                button {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .overlay2 {
+        ul.howtoplay {
+            padding: 15px;
+        
+            border: 5px solid black;
+            li {
+                h5 {
+                    font-size: 30px;
+                } span {
+                    font-size: 20px;
+                    
+                }
+            }
+        }
+    }
+
+
+
+    header {
+        padding-right: 7px;
+        .logo {
+            img {
+                width: 100px;
+            }
+        }
+
+        .header-button {
+            gap: 5px;
+            .btn {
+                height: 35px;
+                width: 35px;
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            } .group {
+                height: 35px;
+                gap: 10px;
+                padding: 5px 20px;
+                svg {
+                    width: 22px;
+                    height: 22px;
+                } span {
+                    font-size: 17px;
+                }
+            }
+        }
+    } 
+
+    .player {
+        width: 65%;
+    }
+
+    .player.die {
+        width: 50%;
+    }
+
+    .container {
+        .ways {
+            .way {
+                width: 140px;
+                .placer {
+                    gap: 15px;
+                    .coin {
+                        width: 60%;
+                        span {
+                            font-size: 28px;
+                        }
+                    } .car {
+                        width: 80%;
+                    } .pagar {
+                        width: 60%;
+                    }
+                }
+            }
+        }
+
+        .sides {
+            .tree {
+                width: 80%;
+                right: 7%;
+                left: unset;
+            } .tower {
+                width: 125px;
+            }
+        }
+    }
+
+    footer {
+        padding: 10px;
+        .menu-option {
+            padding: 10px;
+            .difficult {
+                padding: 10px 12px;
+                &-btn {
+                    button {
+                        width: 120px;
+                        height: 35px;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            &-button {
+                button {
+                    height: 80px;
+                    width: 160px;
+                }
+            }
+        }
+    }
+
+    .overlay, 
+    .overlay3 {
+        .gameover {
+            width: 350px;
+            &-title {
+                font-size: 35px;
+            } .scores {
+                h3, span {
+                    font-size: 35px;
+                }
+            } h1 {
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 450px) {
+
+    .cta {
+
+        button.taptomove {
+            font-size: 30px;
+        }
+
+        &-header {
+
+            .logo {
+                img {
+                    width: 90px;
+                }
+            }
+            .cta-text {
+                padding: 10px;
+                h5 {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .cta-body {
+            .cta-way {
+                width: 120px;
+                flex: 1 0 120px;
+            }
+        }
+    }
+
+
+    .overlay2 {
+        ul.howtoplay {
+            padding: 15px;
+            width: 90%;
+            border: 5px solid black;
+            li {
+                h5 {
+                    font-size: 25px;
+                } span {
+                    font-size: 16px;
+                    
+                }
+            }
+        }
+
+        .closeov2 {
+            top: -35px;
+            padding: 0;
+            svg {
+                width: 20px;
+                height: 20px;
+                
+            }
+        }
+    }
+
+    
+
+    .overlay, 
+    .overlay3 {
+        .gameover {
+            width: 80%;
+            padding: unset;
+            &-title {
+                font-size: 24px;
+            } .scores {
+                margin-top: 24px;
+                
+                h3, span {
+                    font-size: 24px;
+                }
+            } h1 {
+                font-size: 30px;
+                margin: 30px 0;
+            } .buttons {
+                bottom: -40px;
+                button, a {
+                    width: 100px;
+                    padding: 5px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+
+    header {
+        padding-right: 7px;
+        .logo {
+            img {
+                width: 80px;
+            }
+        }
+
+        .header-button {
+            gap: 5px;
+            .btn {
+                height: 35px;
+                width: 35px;
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            } .group {
+                height: 35px;
+                gap: 5px;
+                padding: 5px 10px;
+                svg {
+                    width: 22px;
+                    height: 22px;
+                } span {
+                    font-size: 15px;
+                }
+            }
+        }
+    } 
+
+    .player {
+        width: 60%;
+    }
+
+    .player.die {
+        width: 50%;
+    }
+
+    .container {
+        .ways {
+            .way {
+                width: 120px;
+                .placer {
+                    gap: 15px;
+                    .coin {
+                        width: 50%;
+                        span {
+                            font-size: 20px;
+                        }
+                    } .car {
+                        width: 70%;
+                    } .pagar {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+
+        .sides {
+            .tree {
+                width: 80%;
+                right: 7%;
+                left: unset;
+            } .tower {
+                width: 115px;
+            } .tree:first-child {
+                top: 30px;
+            }
+        }
+    }
+
+    footer {
+        padding: 10px;
+        .menu-option {
+            padding: 10px;
+            .difficult {
+                padding: 10px 12px;
+                top: 65px;
+                &-btn {
+                    button {
+                        width: 80px;
+                        height: 25px;
+                        font-size: 12px;
+                    }
+                } span {
+                    font-size: 18px;
+                }
+            }
+
+            &-button {
+                button {
+                    height: 60px;
+                    width: 160px;
+                    
+                }
+
+                button.counter {
+                    span:first-child {
+                        font-size: 14px;
+                    } span:last-child {
+                        font-size: 22px;
+                    }
+                } button.go {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

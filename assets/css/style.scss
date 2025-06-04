@@ -1,0 +1,717 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+    overflow: hidden;
+    font-family: calibri;
+}
+
+footer {
+    border-top: 5px solid black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999999;
+    background-color: #474747;
+    padding: 20px;
+    .menu-option {
+        border: 5px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #616060;
+        padding: 25px 30px;
+        border-radius: 15px;
+        .difficult {
+            text-align: left;
+            background: #8d8d8d;
+            padding: 20px;
+            border-radius: 13px;
+            border: 5px solid black;
+            span {
+                font-size: 25px;
+                font-weight: bold;
+                color: white;
+            }
+            &-btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+                button {
+                    width: 180px;
+                    height: 50px;
+                    border-radius: 8px;
+                    border: unset;
+                    outline: unset;
+                    background-color: #5b5b5b;
+                    color: white;
+                    font-size: 20px;
+                    border: 2px solid black;
+                    cursor: pointer;
+                } button:hover, button.active {
+                    background-color: rgb(39, 39, 39);
+                }
+            }
+        }
+
+        &-button {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            button {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 130px;
+                width: 200px;
+                border-radius: 12px;
+                border: unset;
+                outline: unset;
+                border: 5px solid black;
+            } button:first-child {
+                background-color: rgb(255, 208, 0);
+                color:black;
+            } button:last-child {
+                background-color: rgb(10, 134, 72);
+                color: white;
+            } 
+
+            button:first-child:hover {
+                background-color: rgb(124, 104, 17);
+                color: white;
+            } button:last-child:hover {
+                background-color: rgb(8, 92, 50);
+            } 
+            
+            
+            button.counter {
+                display: flex;
+                flex-direction: column;
+                font-weight: bold;
+                span:first-child {
+                    font-size: 20px;
+                } span:last-child {
+                    font-size: 30px;
+                }
+            } button.go {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.game-area {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header {
+
+    .livecount {
+        position: absolute;
+        width: auto;
+        position: absolute;
+        bottom: -40PX;
+        display: flex
+    ;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.616), transparent);
+        color: white;
+        font-size: 25px;
+        padding: 3px 30PX;
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: rgb(25, 218, 25);
+            box-shadow: 0 0 5px rgb(202, 241, 143);
+            border-radius: 50%;
+        }
+
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(243, 243, 37, 0.575);
+    z-index: 9999999;
+    background-color: #474747;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-bottom: 5px solid black;
+    .logo {
+        img {
+            width: 150px;
+            filter: drop-shadow(0px 9px 2px black);
+        }
+    }
+
+    .header-button {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .btn:hover {
+            background-color: black;
+        }
+        .btn {
+
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 7px;
+            background-color: #616060;
+            border: 3px solid black;
+            cursor: pointer;
+            svg {
+                pointer-events: none;
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .btn.difficults {
+            display: none;
+        }
+
+        .group:hover {
+            background-color: black;
+        }
+
+        .group {
+            display: flex;
+            align-items: center;
+            height: 55px;
+            justify-content: space-between;
+            padding: 5px 40px;
+            gap: 20px;
+            border-radius: 8px;
+            background-color: #616060;
+            border: 3px solid black;
+            cursor: pointer;
+            * {
+                pointer-events: none;
+            }
+            svg {
+                width: 40px;
+                height: 40px;
+            }
+            span {
+                font-size: 25px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+    }
+}
+
+.overlay.active, 
+.overlay2.active, 
+.overlay3.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: unset;
+}
+.overlay, 
+.overlay2, 
+.overlay3 {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,.5);
+    z-index: 9999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    
+
+}
+
+.overlay2 {
+    ul.howtoplay {
+        list-style-type: none;
+        padding: 20px;
+        background-color: #5e5e5e;
+        color: white;
+        border-radius: 20px;
+        border: 10px solid black;
+        position: relative;
+        li {
+            margin-top: 20px;
+            h5 {
+                font-size: 40px;
+                font-weight: bold;
+                color: rgb(255, 195, 65);
+            } span {
+                font-size: 25px;
+            }
+        } li:nth-child(2) {
+            margin-top: unset;
+        }
+    }
+    
+    .closeov2 {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width:max-content; 
+        padding: 5px 10px;
+        background-color: black;
+        border: 5px solid black;
+        top: -50px;
+        border-radius: 30px 30px 0 0;
+        cursor: pointer;
+    }
+}
+
+.overlay.active, 
+.overlay3.active {
+    .gameover {
+        transform: scale(1);
+    }
+}
+
+.overlay, 
+.overlay3 {
+    .gameover.cta {
+        border: 20px solid rgb(5, 154, 241);
+        .gameover-title {
+            background-color: purple;
+        }
+    }
+    .gameover {
+        width: 600px;
+        box-shadow: 0 0 0 5px black;
+        border: 20px solid rgb(241, 186, 5);
+        padding: 20px;
+        border-radius: 15px;
+        position: relative;
+        background-color: white;
+        transform: scale(0);
+        &-title {
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -40px;
+            margin: auto;
+            font-size: 60px;
+            font-weight: bold;
+            display: inline-block;
+            width: max-content;
+            padding: 5px 30px;
+            border-radius: 10px;
+            background-color: rgb(58, 199, 82);
+            color: white;
+            border: 7px solid black;
+            // margin: AU;
+        } .scores {
+            margin-top: 50px;
+            text-align: center;
+            h3 {
+                font-size: 50px;
+                color: brown;
+            } span {
+                border: 4px solid rgb(0, 0, 0);
+                font-size: 50px;
+                display: inline-block;
+                padding: 5px 20px;
+                margin: 20px 0;
+                width: 70%;
+                border-radius: 30px;
+                background-color: rgb(255, 226, 129);
+            }
+        } .buttons {
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -50px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            button,a {
+                font-size: 30px;
+                padding: 15px 10px;
+                width: 200px;
+                border-radius: 300px;
+                border: 5px solid black;
+                cursor: pointer;
+                text-decoration: none;
+            } button:first-child, 
+            a:first-child {
+                background-color: rgb(0, 153, 255);
+                color: white;
+            } 
+            button:last-child, 
+            a:last-child {
+                background-color: rgb(250, 36, 100);
+                color: white;
+            }
+
+        } h1 {
+            text-align: center;
+            font-size: 50px;
+            margin: 40px 0;
+        } 
+    }
+}
+
+@keyframes blinking {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.cta.hide {
+    transform: translate(0, -100%);
+    user-select: none;
+}
+
+.cta {
+    position: fixed; 
+    z-index: 99999999999999999;
+    background-color: white;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 500ms ease 0s;
+
+    button.taptomove {
+        position: absolute;
+        background-color: orange;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: unset;
+        outline: unset;
+        font-size: 40px;
+        width: max-content;
+        font-weight: bold;
+        bottom: 70px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+        animation: blinking 400ms ease 0s infinite alternate;
+    }
+
+    &-header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 99999;
+        background-color: rgb(77, 77, 77);
+        .logo {
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img {
+                width: 120px;
+            } 
+
+            .cta-score {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                span {
+                    font-size: 20px;
+                    color: white;
+                } .hamburger {
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    span {
+                        display: inline-block;
+                        width: 100%;
+                        height: 3px;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+
+        .cta-text {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.61);
+            h5 {
+                font-size: 30px;
+                color: white;
+            }
+        }
+    }
+
+    .cta-body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        .cta-way {
+            width: 150px;
+            height: 100%;
+            background-color: blue;
+            flex: 1 0 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url('../img/184.webp');
+            background-size: contain;
+            img {
+                width: 70%;
+            }
+            img:first-child {
+                transform: scale(1,-1);
+                margin-bottom: 30px;
+            }
+        }
+
+    }
+
+    &-header {
+        pointer-events: none;
+        user-select: none;
+    }
+    &-body {
+        * {
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+}
+
+
+.player {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translate(0, 0);
+    transition: all 200ms ease 0s;
+    cursor: pointer;
+}
+
+.player.die {
+    width: 80%;
+    z-index: 1;
+}
+
+.player.jump {
+    transform: translate(120px, -40px);
+}
+
+
+
+.container {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    transition: transform 1s ease 200ms;
+    .sides, 
+    .way {
+        position: relative;
+    }
+    .sides {
+        width: auto;
+        flex: none;
+        background: url('../img/side3.webp'); 
+        // background-size: contain;
+        background-size: cover;
+        height: 100%;
+        .side {
+            width: 100%;
+            position: relative;
+        }
+
+        .tree {
+            position: absolute;
+            z-index: 999;
+            left: -50px;
+        }
+
+        .tower {
+            z-index: 9;
+            position: relative;
+            opacity: 0;
+            pointer-events: none;
+            // transform: translate(50%, 30%);
+        }
+
+        .tree:nth-child(1) {
+            top: 80px;
+            z-index: 99;
+        } 
+        .tree:nth-child(2) {
+            bottom: 100px;
+        }
+    }
+
+    .ways {
+        flex:1;
+        display: flex;
+        // gap: 5px;
+
+
+
+        .way {
+            display: flex;
+            width: 200px;
+            height: 100%;
+            // background-color: rgb(139, 137, 137);
+            background: url('../img/184.webp');
+            background-size: contain;
+
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .placer {
+
+                .car {
+                    width: 90%;
+                    position: absolute;
+                    top: -100%;
+                    transform: scale(1, -1);
+                    transition: all 1s linear 0s;
+                    z-index: 99999;
+                    // animation: carAnimate 4s linear 0s infinite;
+                }
+
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 50px;
+                
+
+                .pagar {
+                    opacity: 0;
+                }
+
+                .pagar.show {
+                    opacity: 1;
+                }
+
+                .coin {
+                    width: 70%;
+                    opacity: 1;
+                    transition: all 400ms ease 0s;
+                    position: relative;
+                    img {
+                        width: 100%;
+                    } span {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        
+                        width: max-content;
+                        top: 28%;
+                        font-size: 40px;
+                        background-color: gray;
+                        color: white;
+                        font-weight: bold;
+
+                    }
+                }
+
+                .coin.hide {
+                    opacity: 0;
+                }
+
+                .coin.active {
+                    .multiplier {
+                        display: none;
+                    }
+                }
+
+                
+
+                .car.stop {
+                    animation: carAnimate2 4s linear 0s forwards;
+                }
+
+                .car.finish {
+                    animation: carAnimate3 1s linear forwards;
+                }
+            }
+        }
+
+
+        // SCSS loop to give each .car a different animation delay
+        @for $i from 1 through 30 {
+            .way:nth-child(#{$i}) .car {
+            animation-delay: #{($i - 1) * 1}s; // e.g., 0s, 1s, 2s, 3s
+            }
+        }
+  
+    }
+}
+
+
+
+@keyframes carAnimate {
+    from {
+        top: -100%;
+    } to {
+        top: 135%; 
+    }
+}
+
+@keyframes carAnimate3 {
+    from {
+        top: var(--current-top); /* Posisi saat ini */
+    }
+    to {
+        top: 135%; /* Lanjutkan sampai keluar layar */
+    }
+}
+
+@keyframes carAnimate2 {
+    from {
+        top: -100%;
+    } to {
+        top: 170px; 
+    }
+}
