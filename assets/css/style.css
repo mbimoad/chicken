@@ -396,6 +396,8 @@ header .header-button .group span {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .cta {

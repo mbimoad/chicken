@@ -394,6 +394,8 @@ header {
 .cta.hide {
     transform: translate(0, -100%);
     user-select: none;
+    pointer-events: none;
+    opacity: 0;
 }
 
 .cta {
