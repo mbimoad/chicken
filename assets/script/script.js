@@ -1,13 +1,5 @@
 let realoffset = 160; 
 
-if(window.innerWidth >= 0 && window.innerWidth <= 768) {
-    realoffset = 140; 
-} else if(window.innerWidth >= 769) {
-    realoffset = 200; 
-} else {
-    realoffset = 160; 
-}
-
 // window.addEventListener('wheel', function (e) {
 //     if (e.ctrlKey) {
 //         e.preventDefault();
@@ -255,6 +247,18 @@ document.addEventListener('click', async function (e) {
 
 
 
+function getOffset(pg) {
+    let result = 0; 
+    if(window.innerWidth >= 0 && window.innerWidth <= 767) {
+        result = pg.y - 150; 
+    } else if(window.innerWidth >= 768 && window.innerWidth <= 1000) {
+        result = pg.y - 220; 
+    } else {
+        result = pg.y - 350; 
+    }
+    return result; 
+}
+
 let tapcounter = 0; 
 function Gameplay(player) {
     const ways = document.querySelectorAll('.way');
@@ -314,9 +318,7 @@ function Gameplay(player) {
                     let pr = await getStableRect(pagar);
                     let pg = pagar.getBoundingClientRect(); 
                     let cg = car.getBoundingClientRect(); 
-                    // let offset = pr.top - 340; 
-                    // let offset = realoffset; 
-                    let offset = (pg.y) - 350; 
+                    let offset = getOffset(pg); 
                     if (cr.top >= offset) {
                         car.style.top = `${offset}px`;
                         carData.active = false;
@@ -346,7 +348,7 @@ function Gameplay(player) {
                             let cg = car.getBoundingClientRect(); 
                             // let offset = pr.top - 340;
                             // let offset = realoffset;
-                            let offset = (pg.y) - 350; 
+                            let offset = getOffset(pg); 
                             if (cr.top >= offset) {
                                 car.style.top = `${offset}px`;
                                 carData.active = false;
